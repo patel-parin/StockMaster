@@ -1,13 +1,13 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: '/api', // Proxy in vite.config.js handles this
+    baseURL: import.meta.env.VITE_API_URL, // now dynamic
     headers: {
         'Content-Type': 'application/json',
     },
 });
 
-// Add a request interceptor to add the auth token
+// Add auth token
 api.interceptors.request.use(
     (config) => {
         const token = localStorage.getItem('token');
