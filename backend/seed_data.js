@@ -101,10 +101,11 @@ async function seedData() {
                 items: [
                     { productId: products[0].id, quantity: 500, locationId: locations[0].id },
                     { productId: products[1].id, quantity: 100, locationId: locations[0].id },
+                    { productId: products[2].id, quantity: 20, locationId: locations[0].id }, // Office Chairs
                 ]
             };
             await axios.post(`${API_BASE}/ops/receipts`, receipt1, { headers });
-            console.log('✅ Receipt 1: Steel & Wood received');
+            console.log('✅ Receipt 1: Steel, Wood & Chairs received');
 
             const receipt2 = {
                 supplier: 'Tech Distributors Inc',

@@ -82,9 +82,14 @@ async function getLocations(req, res) {
 }
 
 async function createLocation(req, res) {
-    const { name, address } = req.body;
+    const { name, warehouseId } = req.body;
     if (!name) return res.status(400).json({ error: 'Name is required' });
-    const location = await StockLocation.create({ name, address });
+    // Check if location already exists
+    const existing = await StockLocation.findOne({ where: { name } });
+    if (existing) {
+        return res.status(400).json({ error: 'Location already exists' });
+    }
+    const location = await StockLocation.create({ name, warehouseId: warehouseId || null });
     res.json(location);
 }
 
