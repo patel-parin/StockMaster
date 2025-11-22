@@ -32,7 +32,7 @@ const app = express();
 app.use(cors({
     origin: [
         "http://localhost:5173",         // local vite
-        "https://your-frontend.vercel.app", // replace with actual Vercel URL
+        "https://stock-master-five-kohl.vercel.app", // replace with actual Vercel URL
     ],
     methods: "GET,POST,PUT,DELETE,PATCH",
     credentials: true
